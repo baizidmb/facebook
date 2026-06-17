@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A premium, clean, mobile-first Facebook-style login page featuring modern animations, dynamic interactive forms, and digital connectivity themes.">
+  <title>Connectify - Log In</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- App Wrapper -->
+  <div class="app-wrapper">
+    
+    <!-- Top Branding Header -->
+    <header class="app-header">
+      <div class="header-logo-container">
+        <img src="logo.svg" alt="Connectify Logo" class="brand-logo" id="brand-logo-img">
+        <span class="brand-name">Connectify</span>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      
+      <!-- Left Column: Login Card Section -->
+      <section class="login-section">
+        
+        <!-- Welcome Header -->
+        <div class="welcome-header">
+          <h1>Welcome Back</h1>
+          <p>Reconnect with your digital world and stay close with friends.</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="login-card" id="loginCard">
+          <form id="loginForm" novalidate>
+            
+            <!-- Email Input Field -->
+            <div class="input-group">
+              <input type="email" id="loginEmail" required placeholder=" " autocomplete="email">
+              <label for="loginEmail">Email address or phone number</label>
+              <span class="error-message" id="emailError">Please enter a valid email address</span>
+            </div>
+
+            <!-- Password Input Field -->
+            <div class="input-group password-group">
+              <input type="password" id="loginPassword" required placeholder=" ">
+              <label for="loginPassword">Password</label>
+              <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility">
+                <!-- Eye Icon (hidden by default) -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="eye-icon open-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="eye-icon closed-eye hidden"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+              <span class="error-message" id="passwordError">Password must be at least 6 characters</span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-login" id="loginBtn">
+              <span class="btn-text">Log In</span>
+              <div class="spinner hidden" id="loginSpinner"></div>
+            </button>
+
+          </form>
+
+          <!-- Forgot Password -->
+          <div class="forgot-pwd-container">
+            <a href="#" class="forgot-link" id="forgotPwdLink">Forgot password?</a>
+          </div>
+
+          <!-- Divider -->
+          <div class="divider">
+            <span>or</span>
+          </div>
+
+          <!-- Create Account Button -->
+          <div class="create-account-container">
+            <button type="button" class="btn btn-create" id="openSignUpBtn">Create New Account</button>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- Right Column: Interactive Illustration Section -->
+      <section class="illustration-section">
+        <div class="illustration-wrapper">
+          <img src="illustration.svg" alt="Digital Connection Illustration" class="connection-illustration">
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-languages">
+        <span>English (US)</span> &middot; <span>Español</span> &middot; <span>Français (France)</span> &middot; <span>Português (Brasil)</span> &middot; <span>Italiano</span> &middot; <span>Deutsch</span>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-copyright">
+        <span>Connectify &copy; 2026</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Sign Up Modal (Create New Account) -->
+  <div class="modal-overlay" id="signUpModal" aria-hidden="true" role="dialog">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-area">
+          <h2>Sign Up</h2>
+          <p>It's quick and easy.</p>
+        </div>
+        <button type="button" class="close-modal-btn" id="closeSignUpBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="signUpForm" novalidate>
+        <div class="form-row">
+          <div class="input-group">
+            <input type="text" id="regFirstName" required placeholder=" ">
+            <label for="regFirstName">First name</label>
+            <span class="error-message" id="firstNameError">First name is required</span>
+          </div>
+          <div class="input-group">
+            <input type="text" id="regLastName" required placeholder=" ">
+            <label for="regLastName">Surname</label>
+            <span class="error-message" id="lastNameError">Surname is required</span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="regEmail" required placeholder=" ">
+          <label for="regEmail">Mobile number or email address</label>
+          <span class="error-message" id="regEmailError">Please enter a valid email address</span>
+        </div>
+
+        <div class="input-group">
+          <input type="password" id="regPassword" required placeholder=" ">
+          <label for="regPassword">New password</label>
+          <span class="error-message" id="regPasswordError">Password must be at least 6 characters</span>
+        </div>
+
+        <!-- Date of Birth Selection -->
+        <div class="modal-section-title">Date of birth</div>
+        <div class="dob-selectors">
+          <select id="dobDay" aria-label="Day" class="modal-select"></select>
+          <select id="dobMonth" aria-label="Month" class="modal-select"></select>
+          <select id="dobYear" aria-label="Year" class="modal-select"></select>
+        </div>
+
+        <!-- Gender Selection -->
+        <div class="modal-section-title">Gender</div>
+        <div class="gender-container">
+          <label class="gender-box">
+            <span>Female</span>
+            <input type="radio" name="gender" value="female" checked>
+          </label>
+          <label class="gender-box">
+            <span>Male</span>
+            <input type="radio" name="gender" value="male">
+          </label>
+          <label class="gender-box">
+            <span>Custom</span>
+            <input type="radio" name="gender" value="custom">
+          </label>
+        </div>
+
+        <p class="terms-text">
+          People who use our service may have uploaded your contact information. 
+          By clicking Sign Up, you agree to our Terms, Privacy Policy and Cookies Policy.
+        </p>
+
+        <button type="submit" class="btn btn-create btn-submit-reg" id="regSubmitBtn">
+          <span class="btn-text">Sign Up</span>
+          <div class="spinner hidden" id="regSpinner"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
