@@ -127,13 +127,11 @@ a:hover {
 }
 
 .brand-name {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -1.2px;
   color: var(--primary-color);
-  background: linear-gradient(135deg, var(--primary-color) 0%, #00d2ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-transform: lowercase;
 }
 
 /* Main Container (Responsive Grid) */

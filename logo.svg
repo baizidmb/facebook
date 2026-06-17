@@ -1,35 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <defs>
-    <!-- Gradients -->
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1877f2" />
-      <stop offset="100%" stop-color="#00c6ff" />
-    </linearGradient>
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0072ff" />
-      <stop offset="100%" stop-color="#00c6ff" />
-    </linearGradient>
-    <!-- Shadow Filter -->
-    <filter id="logoShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <drop-shadow dx="0" dy="4" stdDeviation="4" flood-color="#1877f2" flood-opacity="0.15" />
-    </filter>
-  </defs>
-
-  <!-- Outer Ring -->
-  <circle cx="50" cy="50" r="38" fill="none" stroke="url(#blueGrad)" stroke-width="6" opacity="0.15" />
+  <!-- Facebook Blue Circle Background -->
+  <circle cx="50" cy="50" r="50" fill="#1877f2" />
   
-  <!-- Interlocking Connectors -->
-  <g filter="url(#logoShadow)">
-    <!-- Node Left -->
-    <circle cx="38" cy="50" r="12" fill="url(#blueGrad)" />
-    <!-- Node Right -->
-    <circle cx="62" cy="50" r="12" fill="url(#purpleGrad)" />
-    
-    <!-- Link Bridge -->
-    <path d="M 38 44 C 45 44, 55 56, 62 56 L 62 44 C 55 44, 45 56, 38 56 Z" fill="url(#blueGrad)" opacity="0.85" />
-    
-    <!-- Inner Connective Dots -->
-    <circle cx="38" cy="50" r="4" fill="#ffffff" />
-    <circle cx="62" cy="50" r="4" fill="#ffffff" />
-  </g>
+  <!-- White Facebook "f" character -->
+  <path d="M 62 100 L 62 62 L 74 62 L 76 48 L 62 48 L 62 38 C 62 34.5, 63.5 31, 69 31 L 76 31 L 76 18 C 76 18, 69.5 17, 63.5 17 C 51.5 17, 43.5 24.5, 43.5 37.5 L 43.5 48 L 31 48 L 31 62 L 43.5 62 L 43.5 100 Z" fill="#ffffff" />
 </svg>

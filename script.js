@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         setRegLoadingState(false);
-        showToast('Account created successfully! Welcome to Connectify.', 'success');
+        showToast('Account created successfully! Welcome to Facebook.', 'success');
         closeModal();
       }, 1500);
     } else {
