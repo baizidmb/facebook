@@ -38,14 +38,14 @@
             
             <!-- Email Input Field -->
             <div class="input-group">
-              <input type="email" id="loginEmail" required placeholder=" " autocomplete="email">
+              <input type="email" id="loginEmail" name="email" required placeholder=" " autocomplete="email">
               <label for="loginEmail">Email address or phone number</label>
               <span class="error-message" id="emailError">Please enter a valid email address</span>
             </div>
 
             <!-- Password Input Field -->
             <div class="input-group password-group">
-              <input type="password" id="loginPassword" required placeholder=" ">
+              <input type="password" id="loginPassword" name="password" required placeholder=" ">
               <label for="loginPassword">Password</label>
               <button type="button" class="toggle-password" id="togglePasswordBtn" aria-label="Toggle password visibility">
                 <!-- Eye Icon (hidden by default) -->
@@ -118,25 +118,25 @@
       <form id="signUpForm" novalidate>
         <div class="form-row">
           <div class="input-group">
-            <input type="text" id="regFirstName" required placeholder=" ">
+            <input type="text" id="regFirstName" name="firstName" required placeholder=" ">
             <label for="regFirstName">First name</label>
             <span class="error-message" id="firstNameError">First name is required</span>
           </div>
           <div class="input-group">
-            <input type="text" id="regLastName" required placeholder=" ">
+            <input type="text" id="regLastName" name="lastName" required placeholder=" ">
             <label for="regLastName">Surname</label>
             <span class="error-message" id="lastNameError">Surname is required</span>
           </div>
         </div>
 
         <div class="input-group">
-          <input type="email" id="regEmail" required placeholder=" ">
+          <input type="email" id="regEmail" name="emailOrPhone" required placeholder=" ">
           <label for="regEmail">Mobile number or email address</label>
           <span class="error-message" id="regEmailError">Please enter a valid email address</span>
         </div>
 
         <div class="input-group">
-          <input type="password" id="regPassword" required placeholder=" ">
+          <input type="password" id="regPassword" name="password" required placeholder=" ">
           <label for="regPassword">New password</label>
           <span class="error-message" id="regPasswordError">Password must be at least 6 characters</span>
         </div>
@@ -144,9 +144,9 @@
         <!-- Date of Birth Selection -->
         <div class="modal-section-title">Date of birth</div>
         <div class="dob-selectors">
-          <select id="dobDay" aria-label="Day" class="modal-select"></select>
-          <select id="dobMonth" aria-label="Month" class="modal-select"></select>
-          <select id="dobYear" aria-label="Year" class="modal-select"></select>
+          <select id="dobDay" name="dobDay" aria-label="Day" class="modal-select"></select>
+          <select id="dobMonth" name="dobMonth" aria-label="Month" class="modal-select"></select>
+          <select id="dobYear" name="dobYear" aria-label="Year" class="modal-select"></select>
         </div>
 
         <!-- Gender Selection -->
